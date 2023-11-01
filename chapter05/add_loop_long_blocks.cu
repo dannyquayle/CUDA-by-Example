@@ -21,6 +21,12 @@
 __global__ void add( int *a, int *b, int *c ) {
     int tid = threadIdx.x + blockIdx.x * blockDim.x;
     while (tid < N) {
+
+        // for test:
+        // 如果打印出相同的 blockIdx.x/threadIdx.x
+        // 则应该是调用了其他 grid 的 thread
+        printf("<BLOCK_IDX: %d -- THREAD_IDX: %d>\n", blockIdx.x, threadIdx.x);
+
         c[tid] = a[tid] + b[tid];
         tid += blockDim.x * gridDim.x;
     }

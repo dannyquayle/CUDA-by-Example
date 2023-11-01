@@ -41,6 +41,12 @@
 #else
 
 /* On Linux, include the system's copy of glut.h, glext.h, and glx.h */
+
+/*
+   本来这里报错，于是找到云服务器 ubuntu 系统下 /usr/include/GL，
+   打算将头文件拷贝至项目中。但是此时 VSCode 编译器不再报错，
+   也显示能够搜索到 /usr/include 文件夹
+*/
 #include <GL/glut.h>
 #include <GL/glext.h>
 #include <GL/glx.h>
